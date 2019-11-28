@@ -1,0 +1,57 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/new_bklist.css" th:href="@{/css/new_bklist.css}" />
+<script type="text/javascript" src="javaScript/new_bklist.js" th:src="@{/javaScript/new_bklist.js}"></script>
+<title>新建书单</title>
+</head>
+
+<body>
+	<div class="wrap_big">
+    	<div class="div1">
+        </div>
+        <div class="top_div">
+     		<p >新建书单</p>
+     	</div>
+        <div class="new_bk">
+        	<form id="new_bkform" th:action="@{/new_bklist/newBookList}" method="post" >
+            	<div class="div_a">
+                	<p>图书封面：</p>
+                	<p>图书ISBN:</p>
+                     <p>图书名称:</p>
+                     <p>类别:</p>
+                     <p>作者:</p>
+                     <p>库存数量：</p>
+                     <p>最大借阅天数：</p>
+                     <p>借阅单价：</p>
+                </div>
+                <div class="div_b">
+                    <input  type="file" id="pic" name="image" size="10"  />
+                    <input class="txt1" type="text" name="numbering"  size="20" />
+                    <input class="txt1" type="text" name="title"  size="20" /><br />
+                    <select class="select1" name="category"   >
+                        <option></option>
+                        <option>人文社科</option>
+                        <option>经济管理</option>
+                        <option>科学技术</option>
+                        <option>励志</option>
+                        <option>童书</option>
+                        <option>生活</option>
+                        <option>青春文学</option>
+                        <option>网络小说</option>
+                    </select><br />
+                    <input class="txt1" type="text" name="author"  size="20" />
+                    <input class="txt1" type="text" name="stock"  size="20"   />
+                    <input class="txt1" type="text" name="max_day"  size="20"   />
+                    <input class="txt1" type="text" name="price"  size="20"   />
+                </div>
+                 <input class="subm" type="submit"  value="保存" />
+            </form>
+            <div class="p_div" th:text="${msg}"></div>
+
+        </div>
+        <iframe src="foot.html" th:replace="foot::html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    </div>
+</body>
+</html>

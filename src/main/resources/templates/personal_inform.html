@@ -1,0 +1,27 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/personal_inform.css" th:href="@{/css/personal_inform.css}" />
+<script type="text/javascript" src="javaScript/personal_inform.js" th:src="@{/javaScript/personal_inform.js}"></script>
+<title>个人信息修改</title>
+</head>
+
+<body>
+<div id="wrap_big">
+  <div class="div1">
+        <p>个人信息</p>
+  </div>
+    <div class="inform">
+   		<form th:action="@{/changePsInfo}" method="post" enctype="multipart/form-data" id="form_ifm" >
+        	<p>昵称：<input type="text" id="txt_nickname" name="nickname" size="20" /></p>
+           	<p>性别：<label>男<input type="radio" id="radio1" name="sex" value="male"/></label>
+           		 <label>女<input type="radio" id="radio1" name="sex" value="female" checked="checked"/></label></p>
+                 <p><input id="sub" type="submit" value="确认"  style="margin-left:150px;"/></p>
+        </form>
+        <span th:text="${msg_cpi}"></span>
+  </div>
+  <iframe src="foot.html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</div>
+</body>
+</html>

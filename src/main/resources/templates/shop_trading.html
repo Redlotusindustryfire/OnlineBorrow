@@ -1,0 +1,74 @@
+<!DOCTYPE html >
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<title>确认订阅</title>
+<link rel="stylesheet" type="text/css" href="css/shop_trading.css" th:href="@{/css/shop_trading.css}" />
+<script type="text/javascript" src="javaScript/shop_trading.js" th:src="@{/javaScript/shop_trading.js}"></script>
+<script type="text/javascript" src="javaScript/jquery-3.3.1.js" th:src="@{/javaScript/jquery-3.3.1.js}"></script>
+    <script type="text/javascript" src="jquery.cookie.js" th:src="@{/javaScript/jquery.cookie.js}"></script>
+</head>
+	
+<body>
+	<div id="wrap_big">
+
+    	<div class="search_div2"><!--搜索div-->
+        	<div class="pic">
+        	   <img src="shop_trading.jpg" th:src="@{/images/navTopPictrue/shop_trading.jpg}"   />                              <!--插入图片-->
+        	</div>
+       		<div class="ss">
+            <form id="form2"  th:action="@{/search}" method="get" enctype="multipart/form-data">
+           	 	<input id="ss_txt" placeholder="请输入 书名/作者/类别/图书馆名" type="text" size="30"  name="stm"/>
+           	 	<input id="ss_bnt" type="submit" value="搜索" />
+            </form>
+        	</div>
+    	</div><!--div结束-->
+        
+        <div class="shop_trading">     <!--书本详情-->
+            <div class="left_pic">
+                <img th:src="@{${bookInf.image}}"/>
+                <div class="span_div">
+                    <span th:text="'图书ISBN：'+${bookInf.numbering}"></span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span th:text="'作者：'+${bookInf.author}"></span><br>
+                    <span>图书介绍：</span>
+                </div>
+            </div>
+            <div class="left_pic left_pic_bg">
+                <h1 th:text="${bookInf.title}"></h1>
+                <p>借阅价：<b th:text="${bookInf.price}"></b>
+                            <span style="font-size: 18px; margin-left: 50px;" th:utext="'可借阅天数：'+'<b>'+${bookInf.max_day}+'</b>'"></span>
+                </p>
+                <h2 th:text="'借阅量:'+${bookInf.bw_amount}"></h2>
+                <div class="bnt_div">
+                    <a id="btn" th:href="@{'/Submit_orders/'+${bookInf.id}}">立即订阅</a>
+                    <a id="btn_add" >加入书单</a>
+                </div>
+            </div>
+            <div class="right_storeifm" th:unless="${#lists.isEmpty(delivery)}">  <!--图书馆详情-->
+                <p style="height:30px;margin-left: 40px; color: #333333;border: none;">图书馆信息</p>
+                <p>馆名：<span th:text="${delivery.name}"></span></p>
+                <p>地址：<span th:text="${delivery.address}"></span></p>
+                <p>联系方式：<span th:text="${delivery.phone}"></span></p>
+                <p style="border-bottom: 1px dashed #FF0000;">总借出量/本：<span th:text="${total}"></span></p>
+            </div>
+      	</div>
+
+        <div class="related_stg">   <!--  相关推荐-->
+            <div style="width:100%; height: 18px; float: left; font-size: 18px; padding: 5px; border: none;">相关推荐</div>
+            <div class="content_div" th:each="list : ${listBook}">
+                <img th:src="@{${list.image}}" />
+                <a th:text="${list.title}" th:href="@{'/shop_trading/'+${list.id}}" ></a>
+                <h3 th:text="'￥'+${list.price}"></h3>
+                <h4 th:text="'可借阅天数：'+${list.max_day}"></h4>
+                <p th:text="'借阅量：'+${list.bw_amount}"></p>
+            </div>
+
+        </div>
+        <div id="return_top">
+            <img style="height: 110px; width: 50px;" src="return_top.jpg" th:src="@{/images/return_top.jpg}" />			<!--返回顶部-->
+        </div>
+        <iframe src="foot.html" th:replace="foot::html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+	</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/personal_inform.css" th:href="@{/css/personal_inform.css}"/>
+<script type="text/javascript" src="javaScript/personal_inform.js" th:src="@{/javaScript/personal_inform.js}"></script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="wrap_big">
+  <div class="div1">
+        
+  </div>
+    <div class="inform">
+    	<h3>配送信息编辑</h3>
+   		<form th:action="@{/changDeliveryInfo}" method="get" enctype="multipart/form-data" id="form_addr" >
+        	<p>姓名：<input type="text" id="txt_name" name="name" size="20" style="margin-left:60px;"/></p>
+           	<p>电话号码：<input type="text" id="txt_telnum" name="phone" size="20" /></p>
+           	<p>配送地址: </p>
+           	<textarea id="address" name="address" rows="3" cols="30"></textarea>
+            <p><input type="submit" value="保存"  style="margin-left:150px;"/></p>
+        </form>
+        <span th:text="${msg}"></span>
+  </div>
+  <iframe src="foot.html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</div>
+</body>
+</html>

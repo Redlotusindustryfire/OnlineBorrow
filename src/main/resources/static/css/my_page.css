@@ -1,0 +1,30 @@
+@charset "utf-8";
+*{ margin:0; padding:0;}
+div{ border:1px solid #333;  }
+a{ text-decoration:none; color:#000;}
+a:hover{ cursor:pointer; text-decoration: underline; color: #00FFFF;}
+
+#wrap_big{width:1200px; height:auto;margin:auto;margin-top:5px; position:relative;}
+#div1{ height:100px ;width:1200px; background-color:#CCCCCC;}
+#div1  p{ margin:60px 0 0 10px; float:left;font-size:18px; font-weight:bold;}
+#div2{ height:60px; width:1200px; text-align:center; background-color:#CFF; }
+ ul{margin:0 auto;}
+ li{ list-style:none; padding-top:10px;  }
+ li:hover{ cursor:pointer; background-color:#FFCCFF;}
+.li1{  height:50px; width:150px;float:left; position:relative; font-size:1.25em;}
+.div1{ height:auto; width:150px; border:none;  background-color:#CCC; position:absolute; overflow:hidden;margin-top:20px; display:none; z-index:2;}
+.div1 li{ height:40px; border-top:1px dashed #666666; font-size:0.8em; }
+
+.delivery{ width:1200px; height:auto; min-height: 800px; float:left;}
+.delivery .delivery_top{width: 1200px; height: 50px; float: left; border: none;background-color:#CCC;}
+.delivery .delivery_top p{font-size:1.0em; width: 100px; height: 40px; float: left; margin:15px 0 0 200px;}
+.delivery .delivery_lt{ width:450px; height:auto; float:left;border: none; }
+.delivery .delivery_lt .delivery_lt_div{width:450px;height: 150px; float: left;border: none;}
+.delivery .delivery_rt{ width:750px; height:auto; float:left;border: none; }
+.delivery .delivery_rt .delivery_rt_div{width:750px;height: 150px; float: left; position: relative;border: none;}
+.delivery  h3{ width:100%; height:50px; float:left; background-color:#CCCCFF; font-size:1.5em;}
+.delivery  h4{ width:200px; height:50px; float:left; margin:60px 0 0 60px;}
+.delivery  img{ width:100px; height:100px; float:left; margin:20px;}
+.delivery  img:hover{ border-color:#C00;cursor:pointer;}
+.delivery .delivery_rt .delivery_rt_div  .btn1{ font-size:18px; position:absolute; right:30px; top:50px;cursor:pointer;}
+.delivery .delivery_rt .delivery_rt_div  .btn{font-size:18px; position:absolute; right:120px; top:50px;cursor:pointer;}

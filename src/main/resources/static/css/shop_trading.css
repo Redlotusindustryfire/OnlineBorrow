@@ -1,0 +1,46 @@
+@charset "utf-8";
+*{ margin:0; padding:0;}
+div{  overflow:hidden; }
+a{text-decoration: none;}
+a:hover{ cursor:pointer; text-decoration: underline;}
+#wrap_big{width:1200px; height:auto;margin:auto;margin-top:5px; position:relative;}
+#return_top{ width:50px; height:110px; position:fixed; right:108px; top:600px;border: none;}
+iframe{ width:1200px; height:200px; border:none;}
+
+.search_div2{ width:1198px; height:100px; float:left; background-color:#CFF; position:relative;  margin-top:5px; z-index:1;}
+	.search_div2 .pic{width:290px; height:98px; position:absolute; left:0; top:0;opacity:0.6;  }
+	.search_div2 .ss{ width:auto; height:auto; position:absolute; left:800px; top:30px; border:none; }
+	.search_div2 #ss_txt{ padding:10px; }
+	.search_div2 #ss_bnt{ padding:10px;}
+
+.shop_trading{ width:1200px; height:auto; float:left; margin-top:5px;background-color: #CCCCCC; }
+.shop_trading .left_pic{ width:500px; height:500px; float:left;
+						margin-right:10px; background-color:#9FF;
+						position: relative;} /*书本图片*/
+.shop_trading .left_pic img{width: 500px; height: 380px;}
+.shop_trading .left_pic .span_div{width: 450px; height: 110px; position: absolute; left: 20px; bottom:0; }
+.shop_trading .left_pic .span_div span{ font-size: 18px; color: #333333;}
+.shop_trading .left_pic p{ width:480px; height:50px; float:left; background-color:#999; font-size:1.0em;padding:20px 0 0 20px;} /*书本标题及及格购买*/
+.shop_trading .left_pic h1{width:500px; height:80px; float:left; font-size:1.5em;margin:10px 0 0 10px;}
+.shop_trading .left_pic h2{ width:500px; height:30px; float:left; font-size:1.0em; padding:20px 0 0 20px;}
+.shop_trading .left_pic b{ font-size:2.0em; color:#F00;}
+.shop_trading .left_pic_bg{background-color: #FFCCFF;}
+.shop_trading .bnt_div{ width:500px; height:100px; float:left;margin-top: 50px; border: none;}
+.shop_trading .bnt_div a{ display:inline-block; width:150px; height:50px; float:left; margin:20px 10px 30px 80px; background-color: #00FFFF; font-size:2.0em;}
+.shop_trading .right_storeifm{ width:170px; height:500px; float:right; background-color: aliceblue;
+								overflow: hidden;
+}  /*书本所属图书馆信息*/
+.shop_trading .right_storeifm p{width: 150px; height: auto;float: left;
+	margin: 20px 0 0 10px;color: #666666; font-size: 14px;border-top: 1px dashed #FF0000;
+}
+.shop_trading .right_storeifm span{color: #00FF00; font-size: 18px;}
+
+.related_stg{ width:1200px; height:auto; float:left; min-height:500px; background-color:#FFC;margin: 10px 0 10px 0;} /*相关图书推荐*/
+.related_stg .content_div{ width:225px; height:350px; margin:10px 0 0 10px ; float:left; position:relative;border: 1px solid #666666;}
+.related_stg .content_div:hover{ border:1px solid #F30;}
+.related_stg .content_div img{ width:225px; height:250px; float:left;} 
+.related_stg .content_div a{ font-size:16px; font-weight:bold; position:absolute; left:10px; top:260px;}
+.related_stg .content_div h3{ font-size:20px; color:#F00;position:absolute; left:10px; top:290px; }
+.content_div h4{font-size:15px; color:#FF9900; position:absolute; left:90px; top:290px;}
+.related_stg .content_div p{ font-size:14px;position:absolute; left:70px; top:330px; }
+.related_stg .content_div a:hover{ text-decoration:underline; color:#00F;}

@@ -1,0 +1,37 @@
+@charset "utf-8";
+*{ margin:0; padding:0;}
+div{overflow: hidden; }
+a{ font-size:1.0em; color:#666; text-decoration:none; text-align:center; }
+a:hover{ color:#00F;cursor:pointer; text-decoration:underline;}
+#wrap_big{width:1200px; height:auto;margin:auto;margin-top:5px; position:relative; overflow:hidden; border:none;} 
+#return_top{ width:50px; height:110px; position:fixed; right:110px; top:600px;border: none;}
+iframe{ width:1195px; height:200px; border:none;}
+
+.search_div2{width:1198px;  height:100px; float:left; background-color:#CFF; position:relative;  margin-top:5px; z-index:1;}
+	.search_div2 .pic{width:290px; height:98px; position:absolute; left:0; top:0;opacity: 0.5;  }
+	.search_div2 .ss{ width:auto; height:auto; position:absolute; left:800px; top:30px; border:none; }
+	.search_div2 #ss_txt{ padding:10px; }
+	.search_div2 #ss_bnt{ padding:10px;}
+	
+#tital_categories{ width:1188px; height:30px; padding:20px 0 0 10px; float:left;
+	font-size:18px; font-weight:bold;background-color: #FFCCFF;
+}
+
+.categories{width:1198px; height:auto; float:left; margin-top:5px; border-top: none; }
+.categories .categories_condition{ height:30px;border-bottom: none;}
+.categories .categories_condition li{ width:80px; height:30px; float:left;border:1px dashed #FF6; list-style:none; padding-left:10px;}
+.categories .categories_condition  li img{ width:80px; height:30px; background: no-repeat fixed; background-position:center; }
+
+.categories  #categories_content{ width:1195px; height:auto; float:left;
+	background-color:#CCF; min-height:1000px;position: relative; }
+.categories  #categories_content p{width: 200px; height: 100px; font-size: larger;
+									position: absolute; left: 500px;top:200px;}
+.categories  #categories_content .content_div{ width:225px; height:350px;
+												margin:10px 0 0 10px ;border: 1px dashed #666666;
+												float:left; position:relative;}
+.categories  #categories_content .content_div:hover{ border:1px solid #F30; cursor:pointer;}
+.categories  #categories_content .content_div img{ width:225px; height:250px; float:left;}
+.categories  #categories_content .content_div a{font-size:16px; position:absolute; left:5px; top:260px;}
+.categories  #categories_content .content_div  h3{ font-size:20px; color:#F00; position:absolute; left:5px; top:290px; }
+.content_div h4{font-size:15px; color:#FF9900; position:absolute; left:90px; top:290px;}
+.categories  #categories_content .content_div  p{ font-size:14px; position:absolute; left:80px; top:320px;}

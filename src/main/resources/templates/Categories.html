@@ -1,0 +1,64 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<title>图书浏览</title>
+<link rel="stylesheet" type="text/css" href="css/Categories.css" th:href="@{/css/Categories.css}"  />
+<script type="text/javascript" src="javaScript/Categories.js" th:src="@{/javaScript/Categories.js}"></script>
+ <script type="text/javascript" src="javaScript/jquery-3.3.1.js" th:src="@{/javaScript/jquery-3.3.1.js}"></script>
+</head>
+
+<body>
+<div id="wrap_big">
+
+ 	<div class="search_div2"><!--搜索div-->
+        <div class="pic">
+            <img src="Category-navTop1.jpg" th:src="@{/images/navTopPictrue/Category-navTop1.jpg}"   /><!--插入图片-->
+        </div>
+        <div class="ss">
+            <form id="form2"  th:action="@{/search}" method="get" enctype="multipart/form-data">
+           	 	<input id="ss_txt" placeholder="请输入 书名/作者/类别/图书馆名" type="text" size="30"  name="stm"/>
+           	 	<input id="ss_bnt" type="submit" value="搜索" />
+            </form>
+        </div>
+    </div><!--div2结束-->
+    <div id="tital_categories">
+        <span id="span1" th:text="${q}"></span>
+        <span id="span2" th:text="${show_title}"></span>
+    </div>
+    <div class="categories">   <!--商品浏览-->
+    	<div class="categories_condition">  <!--浏览条件-->
+        	<ul>
+            	<li id="a1"><a>综合排序</a></li>
+                <li id="a2"><a>借阅量</a></li>
+                <li id="a3"><img src="images/price_up.jpg" th:src="@{/images/price_up.jpg}" /></li>
+                <li id="a4"><img src="images/price_down.jpg" th:src="@{/images/price_down.jpg}" /></li>
+            </ul>
+        </div>
+        
+        <div id="categories_content"> <!--浏览列表-->
+            <p th:text="${msg}"></p>
+            <div class="content_div" th:each="bk : ${books}"> <!-- //搜索指定内容，返回的相关内容-->
+                <img th:src="@{${bk.image}}" />
+                <a th:text="${bk.title}" th:href="@{'/shop_trading/'+${bk.id}}" target="_blank"></a>
+                <h3 th:text="'￥'+${bk.price}"></h3>
+                <h4 th:text="'可借阅天数：'+${bk.max_day}"></h4>
+                <p th:text="'借阅量：'+${bk.bw_amount}"></p>
+            </div>
+            <div class="content_div" th:each="b1 : ${bookh}">  <!--HomePage点击“更多”，返回的数据-->
+                <img th:src="${b1.image}" />
+                <a th:text="${b1.title}" th:href="@{'/shop_trading/'+${b1.id}}" target="_blank"></a>
+                <h3 th:text="'￥'+${b1.price}"></h3>
+                <h4 th:text="'可借阅天数：'+${b1.max_day}"></h4>
+                <p th:text="'借阅量：'+${b1.bw_amount}"></p>
+            </div>
+        </div>
+    </div>
+    <div id="return_top">
+        <img style="height: 110px; width: 50px;" src="return_top.jpg" th:src="@{/images/return_top.jpg}" />			<!--返回顶部-->
+    </div>
+    <iframe src="foot.html" th:replace="foot::html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</div>
+    
+</body>
+</html>

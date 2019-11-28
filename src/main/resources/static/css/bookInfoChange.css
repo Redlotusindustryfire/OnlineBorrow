@@ -1,0 +1,20 @@
+@charset "utf-8";
+*{ margin:0; padding:0;}
+div{ border:1px solid #333;  }
+.wrap_big{width:1200px; height:auto;;margin:auto;margin-top:5px; position:relative;}
+iframe{ width:1200px; height:200px; border:none;}
+.div1{ height:100px ;width:1198px; float:left; background-color:#FFC;}
+.top_div{ width:1198px; height:60px; float:left; background-color:#CCC; position:relative;}
+.top_div .top_btn1 { padding:5px; font-size:20px; position:absolute; right:20px; top:10px; }
+.top_div p{ font-size:24px; margin-top:25px;}
+.new_bk{ width:60%; height:600px; margin-left:20%; float:left; position:relative; background-color:#CCC;}
+.new_bk .div_a{ width:180px; height:350px; float:left; border:none; margin-left:50px;}
+.new_bk .div_b{width:400px; height:350px; float:left; border:none;}
+.new_bk  input{display: inline-block;margin-top: 6px;}
+.p_div{ width:100px; height:50px;color: #FF0000; font-size: larger;
+    position: absolute; left:280px; bottom:160px; border: none; }
+.new_bk .div_a p{ font-size:20px;margin:8px; padding:5px;}
+.txt1,.select1{ font-size:16px; margin:5px; padding:5px;}
+.subm{ font-size:18px; padding:5px; position:absolute; left:300px; bottom:100px;}
+#pic{ font-size:20px;margin:5px; padding:5px;}
+

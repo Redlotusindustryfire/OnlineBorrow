@@ -1,0 +1,49 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/address_list.css" th:href="@{/css/address_list.css}" />
+<script type="text/javascript" src="javaScript/address_list.js" th:src="@{/javaScript/address_list.js}"></script>
+<script type="text/javascript" src="javaScript/jquery-3.3.1.js" th:src="@{/javaScript/jquery-3.3.1.js}"></script>
+<title>配送地址清单</title>
+</head>
+
+<body>
+<div id="wrap_big">
+ 	<div class="div1">
+    	<p>配送地址清单</p>
+    </div>
+    <div class="shop_cart">
+        <div class="foot_div">
+            <input class="foot_btn1" type="button" value="删除所选" />
+            <p><a href="/ship_address.html">新建配送地址</a></p>
+        </div>
+    	<table id="cart_table">
+            <thead>
+                <tr>
+                    <th><label><input type="checkbox" /> 全选</label></th>
+                    <th>收货人姓名</th>
+                    <th class="td_pic">配送地址</th>
+                    <th>电话/手机号码</th>
+                    <th>功能</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="list : ${lists}">
+                    <td ><input class="ckbox" type="checkbox" /></td>
+                    <td th:text="${list.name}">鬼谷子</td>
+                    <td><span th:text="${list.address}"></span></td>
+                    <td th:text="${list.phone}"></td>
+                    <td>
+                   		<input class="delete" type="button" value="删除" />
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+    <iframe src="foot.html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+ </div>
+</body>
+</html>

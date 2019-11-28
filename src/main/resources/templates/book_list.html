@@ -1,0 +1,83 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="book_list.css" th:href="@{/css/book_list.css}"/>
+<script type="text/javascript" src="book_list.js" th:src="@{/javaScript/book_list.js}"></script>
+    <script type="text/javascript" src="jquery-3.3.1.js" th:src="@{/javaScript/jquery-3.3.1.js}"></script>
+<title>书单信息</title>
+</head>
+
+<body>
+ <div class="wrap_big">
+ 	<div class="div1">
+    	<div class="ss">
+            <form id="form_bk"  th:action="@{/searchBooks}" method="get" enctype="multipart/form-data">
+                <input id="txt1" type="text" size="30"  name="stm" placeholder="请输入 类别/作者/书名"/>
+                <input id="bnt1" type="submit" value="搜索" />
+            </form>
+        </div>
+    </div>
+     <div class="top_div">
+     	<p>图书信息</p>
+       	 <a href="new_bklist.html">新建图书</a>
+     </div>	
+    <div class="book_inform">
+    	<table id="bk_inf_table">
+            <thead>
+                <tr>
+                	<th>图书图片</th>
+                   <th>图书ISBN</th>
+                    <th>图书名称</th>
+                    <th>类别</th>
+                    <th>作者</th>
+                    <th>库存数量/本</th>
+                    <th>最大借阅天数</th>
+                    <th>借阅单价/RMB</th>
+                    <th>借阅量/本</th>
+                    <th>功能</th>
+                </tr>
+            </thead>
+            <tbody>
+            	 <tr  th:each="book: ${books}">
+                 	<td><img th:src="@{${book.image}}" /></td>
+                    <td th:text="${book.numbering}"></td>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.category}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.stock}"></td>
+                    <td th:text="${book.max_day}"></td>
+                    <td th:text="${book.price}"></td>
+                     <td th:text="${book.bw_amount}"></td>
+                    <td>
+                        <span style="display: none;" th:text="${book.id}"></span>  <!--隐藏图书的id，方便删除时引用-->
+                    	<a th:href="@{'/bookInfoChange/'+${book.id}}">编辑</a>
+                        <input class="delete" type="button" value="删除" />
+                    </td>
+                </tr>
+
+                <tr  th:each="bk: ${bks}">      <!--搜索结果显示-->
+                    <td><img th:src="@{${bk.image}}" /></td>
+                    <td th:text="${bk.numbering}"></td>
+                    <td th:text="${bk.title}"></td>
+                    <td th:text="${bk.category}"></td>
+                    <td th:text="${bk.author}"></td>
+                    <td th:text="${bk.stock}"></td>
+                    <td th:text="${bk.max_day}"></td>
+                    <td th:text="${bk.price}"></td>
+                    <td th:text="${bk.bw_amount}"></td>
+                    <td>
+                        <span style="display: none;" th:text="${bk.id}"></span>  <!--隐藏图书的id，方便删除时引用-->
+                        <a th:href="@{'/bookInfoChange/'+${bk.id}}">编辑</a>
+                        <input class="delete" type="button" value="删除" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+       
+    </div>
+    <iframe src="foot.html" th:replace="foot::html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+ </div>
+
+</body>
+</html>

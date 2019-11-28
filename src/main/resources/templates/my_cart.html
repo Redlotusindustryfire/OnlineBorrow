@@ -1,0 +1,63 @@
+<!DOCTYPE html >
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/my_cart.css" th:href="@{/css/my_cart.css}" />
+<script type="text/javascript" src="javaScript/my_cart.js" th:src="@{/javaScript/my_cart.js}"></script>
+    <script type="text/javascript" src="javaScript/jquery-3.3.1.js" th:src="@{/javaScript/jquery-3.3.1.js}"></script>
+<title>我的看单</title>
+</head>
+
+<body>
+ <div id="wrap_big">
+ 	<div class="div1">
+    	<p>我的看单</p>
+    </div>
+    <div class="shop_cart">
+    	<table id="cart_table">
+            <thead>
+                <tr>
+                    <th><label><input type="checkbox" /> 全选</label></th>
+                    <th>图书名称</th>
+                    <th>借阅单价/RMB</th>
+                     <th >数量/本</th>
+                     <th >总借阅价/RMB</th>
+                    <th>功能</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book : ${books}">
+                    <td ><input class="ckbox" type="checkbox" /></td>
+                    <td class="td_pic">
+                        <img th:src="@{${book.image}}" />
+                        <a th:text="${book.title}" th:href="@{'/shop_trading/'+${book.id}}"></a>
+                    </td>
+                    <td>
+                        <span th:text="${book.price}"></span>
+                    </td>
+                    <td>
+                        <input class="btn1" type="button" value="-" />
+                        <input class="txt1" type="text" name="quantity" value="1" size="1"/>
+                        <input class="btn2" type="button" value="+" />		  	
+                     </td>
+                     <td>
+                         <h3>
+                             <input class="txt2" type="text" th:value="${book.price}"  size="3" readonly="readonly"/>
+                         </h3>
+                     </td>
+                    <td><input class="delete" type="button" value="删除" /></td>
+                </tr>
+
+                
+            </tbody>
+        </table>
+        <div class="foot_div">
+        	<input class="foot_btn1" type="button" value="删除所选" />
+            <h3>合计：&yen;<input class="txt2" type="text" value="0" name="price" size="3" readonly="readonly"/></h3>
+        </div>	
+    </div>
+    <iframe src="foot.html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+ </div>
+
+</body>
+</html>

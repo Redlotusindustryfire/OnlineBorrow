@@ -1,0 +1,11 @@
+@charset "utf-8";
+*{ margin:0; padding:0;}
+div{ border:1px solid #333;  }
+.wrap_big{width:1200px; height:auto;margin:auto;margin-top:5px; position:relative; background-color:#FFC;}
+iframe{ width:1200px; height:200px; border:none;}
+.div1{ height:100px ;width:100%; float:left;}
+.div1 p{ font-size:1.5em; margin-top:50px; margin-left:10px;}
+.inform{ width:60%; height:600px; float:left; margin-left:20%; padding:20px; font-size:1.0em;}
+.inform input{ font-size:1.25em; background-color:#CCC; margin:20px; }
+.inform p{ font-size:1.25em; margin-left:100px;}
+textarea{ margin-top:0px; margin-left:220px;font-size:1.25em;}

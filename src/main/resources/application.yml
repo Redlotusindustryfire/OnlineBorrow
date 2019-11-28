@@ -1,0 +1,18 @@
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/online_borrowing?characterEncoding=utf-8
+    username: root
+    password: 19970925
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  jackson:
+    serialization:
+      indent_output:
+        true

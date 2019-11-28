@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="ReturnApplication.css" th:href="@{/css/ReturnApplication.css}" />
+    <script type="text/javascript" src="ReturnApplication.js" th:src="@{/javaScript/ReturnApplication.js}"></script>
+    <script type="text/javascript" src="jquery-3.3.1.js" th:src="@{/javaScript/jquery-3.3.1.js}"></script>
+    <title>归还申请</title>
+</head>
+
+<body>
+<div class="big_div">
+    <div class="div1">
+        <p>待处理的归还申请</p>
+    </div>
+    <div class="shop_cart">
+        <div id="nav_top">
+            <p style="margin-left: 120px;">书名</p>
+            <p>图书ISBN</p>
+
+            <p>借阅数量/本</p>
+            <p>申请时间</p>
+            <p>借阅人账号</p>
+
+            <p style="margin-left: 30px;">借阅人</p>
+            <p>借阅人地址</p>
+            <p>手机/电话</p>
+            <p>功能</p>
+        </div>
+        <div id="record_lt">
+            <div class="record_lt_div" th:each="book : ${books}">
+                <img th:src="@{${book.image}}" />
+                <p><a th:text="${book.title}"></a></p>
+                <p th:text="${book.numbering}"></p>
+            </div>
+        </div>
+
+        <div id="record_rt">
+            <div class="record_rt_div"  th:each="borrow2 : ${borrows2}">
+                <p th:text="${borrow2.quantity}"></p>
+                <p th:text="${borrow2.returnTime}"></p>
+                <p th:text="${borrow2.username}"></p>
+            </div>
+        </div>
+        <div id="record_last">
+            <div class="record_last_div" th:each="delivery : ${deliveries}">
+                <p th:text="${delivery.name}"></p>
+                <p  style="margin-left: 20px;" th:text="${delivery.address}"></p>
+                <p th:text="${delivery.phone}"></p>
+                <p style="margin-left: 20px;"><input class="btn" type="button"  value="图书已还"/></p>
+            </div>
+        </div>
+
+    </div>
+    <iframe src="foot.html" th:replace="foot::html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</div>
+</body>
+</html>

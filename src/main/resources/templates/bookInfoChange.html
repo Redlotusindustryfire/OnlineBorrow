@@ -1,0 +1,67 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="css/bookInfoChange.css" th:href="@{/css/bookInfoChange.css}" />
+    <script type="text/javascript" src="javaScript/bookInfoChange.js" th:src="@{/javaScript/bookInfoChange.js}"></script>
+    <title>修改图书信息</title>
+</head>
+
+<body>
+<div class="wrap_big">
+    <div class="div1">
+    </div>
+    <div class="top_div">
+        <p >修改图书信息</p>
+    </div>
+    <div class="new_bk">
+        <form id="new_bkform" th:action="@{/bookInfoChange/modifySave}" method="post" >
+            <div class="div_a">
+                <p>图书封面：</p>
+                <p>图书ISBN:</p>
+                <p>图书名称:</p>
+                <p>类别:</p>
+                <p>作者:</p>
+                <p>库存数量：</p>
+                <p>最大借阅天数：</p>
+                <p>借阅单价：</p>
+            </div>
+            <div class="div_b"  >
+                <input style="display:inline-block; margin-top: 20px;" type="file"  name="image" size="10" th:value="${book.image}" />
+                <input style="display:inline-block; margin-top: 10px;" class="txt1" type="text" name="numbering"  size="20" th:value="${book.numbering} " />
+                <input style="display:inline-block; margin-top: 10px;" class="txt1" type="text" name="title"  size="20" th:value="${book.title}" /><br />
+                <select class="select1" name="category" th:switch="${book.category}"  >
+                    <option th:case="'人文社科'" selected="selected" >人文社科</option>
+                    <option th:case="'经济管理'" selected="selected">经济管理</option>
+                    <option th:case="'科学技术'" selected="selected">科学技术</option>
+                    <option th:case="'励志'" selected="selected">励志</option>
+                    <option th:case="'童书'" selected="selected">童书</option>
+                    <option th:case="'生活'" selected="selected">生活</option>
+                    <option th:case="'青春文学'" selected="selected">青春文学</option>
+                    <option th:case="'网络小说'" selected="selected">网络小说</option>
+                    <option >人文社科</option>
+                    <option >经济管理</option>
+                    <option >科学技术</option>
+                    <option >励志</option>
+                    <option >童书</option>
+                    <option >生活</option>
+                    <option >青春文学</option>
+                    <option >网络小说</option>
+                </select><br />
+                <input class="txt1" type="text" name="author"  size="20"  th:value="${book.author}"/>
+                <input  class="txt1" type="text" name="stock"  size="20"  th:value="${book.stock}"  />
+                <input style="display:inline-block; margin-top: 10px;"  class="txt1" type="text" name="max_day"  size="20"  th:value="${book.max_day}" />
+                <input  class="txt1" type="text" name="price"  size="20"  th:value="${book.price}" />
+                <input style="display: none;" type="text" name="id" th:value="${book.id}">  <!--隐藏book id传送到后台-->
+            </div>
+
+            <input class="subm" type="submit"  value="保存" />
+        </form>
+        <div class="p_div" th:text="${msg}">
+        </div>
+
+    </div>
+    <iframe src="foot.html" th:replace="foot::html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</div>
+</body>
+</html>

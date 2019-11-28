@@ -1,0 +1,47 @@
+<!DOCTYPE html >
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="Submit_orders.css" th:href="@{/css/Submit_orders.css}"/>
+<script type="text/javascript" src="Submit_orders.js" th:src="@{/javaScript/Submit_orders.js}"></script>
+    <script type="text/javascript" src="jquery-3.3.1.js" th:src="@{/javaScript/jquery-3.3.1.js}"></script>
+<title>提交订单</title>
+</head>
+
+<body>
+<div id="wrap_big">
+         
+         <div class="submit_orders">
+        	 <h3>选择配送地址</h3>
+         	<div class="address">
+            	<div class="address_div" th:each="delivery:${deliveries}">
+                    <h1>收货人姓名：<span th:text="${delivery.name}"></span></h1>
+                    <h1>收货人联系方式：<span th:text="${delivery.phone}"></span></h1>
+                    <h2>收货人地址：<span th:text="${delivery.address}"></span></h2>
+                </div>
+
+            </div>
+             <h3>确认订单</h3>
+            <div class="shoping">
+            	<div class="shoping_div">
+                    <img th:src="@{${book.image}}" />
+                    <h5 th:text="${book.title}"></h5>
+                    <h4 th:text="'单价：￥'+${book.price}"></h4>
+                 	<div class="shoping_div_a">
+                        <input id="btn1" type="button" value="-" />
+                        <input id="txt1" type="text" name="quantity" value="1" size="2"/>
+                        <input id="btn2" type="button" value="+" />
+                        <h3>付款金额：￥<span id="txt2" th:text="${book.price}"></span></h3>
+                        <p id="id" style="display: none;" th:text="${book.id}"></p>
+                        <input id="btn_sub" type="button" value="提交订单" style="padding:5px 10px 5px 10px; font-size:1.5em;margin:10px 0 10px 150px;" />
+
+					</div>
+                </div>
+                
+               
+            </div>
+            <iframe src="foot.html" th:replace="foot::html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+         </div>
+</div>
+</body>
+</html>

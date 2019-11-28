@@ -1,0 +1,27 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/lib_information.css" th:href="@{/css/lib_information.css}" />
+<script type="text/javascript" src="javaScript/lib_information.js" th:src="@{/javaScript/lib_information.js}"></script>
+<title>图书馆信息编辑</title>
+</head>
+
+<body>
+<div class="wrap_big">
+  <div class="div1">
+        <p>图书馆信息编辑</p>
+  </div>
+    <div class="inform">
+   		<form th:action="@{/libraryInfo}" method="post" enctype="multipart/form-data" id="form_ifm" >
+        	<p>图书馆名称：<input type="text" id="lib_name" name="name" size="20" /></p>
+           	<p>图书馆地址：<input type="text" id="lib_addr" name="address" size="20" /></p>
+            <p>图书馆电话：<input type="text" id="lib_telnub" name="phone" size="20" /></p>
+             <p><input id="btn" type="submit" value="确认"  style="margin-left:150px;"/></p>
+             <span th:text="${msg}"></span>
+        </form> 
+  </div>
+  <iframe src="foot.html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</div>
+</body>
+</html>

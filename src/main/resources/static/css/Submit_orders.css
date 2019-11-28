@@ -1,0 +1,35 @@
+@charset "utf-8";
+*{ margin:0; padding:0;}
+div{ border:1px solid #333; overflow:hidden; }
+a:hover{ cursor:pointer;}
+#wrap_big{width:1200px; height:auto;margin:auto;margin-top:5px; position:relative;}
+iframe{ width:1200px; height:200px; border:none;}
+
+.nav_top{ width:1200px; height:50px;  float:left;border-top:1px solid #666; background-color:#FFC;;}
+	.nav_top a{ text-align:center; font-size:em; text-decoration:none; word-spacing:10px; color:#999;  display:inline-block; margin:10px; border-right:1px solid #333; }
+	.nav_top a:hover{ color:#000;}
+	.nav_top a.rt{ float:right;}
+	.nav_top a.lt{float:left;}
+.submit_orders{ width:1200px; height:auto; min-height:500px; float:left; background-color: #CCFFFF;}
+.submit_orders .address{width:1200px; height:auto; float:left;}
+.submit_orders .address .address_div{ width:220px; height: 150px; float:left;background-color: #CCCCCC;
+							border:3px double #FFCCFF; margin:5px;}
+.submit_orders .address  h1{width:210px; height: 40px; float: left; font-size: 16px;color: #FFCCFF;}
+.submit_orders .address  h2{width:210px; height: 100px; float: left; font-size: 16px; color:#FFCCFF;}
+.submit_orders .address  span{color: #333333;}
+.submit_orders .address .address_div:hover{ border-color:#F00;}
+.submit_orders .address .active{width:220px; height: 150px; float:left;background-color: #CCCCCC;
+	 margin:5px;border:3px solid #FF0000;  }
+
+.submit_orders .shoping{ width:1200px; height:auto; float:left; margin-top:5px;}
+.submit_orders .shoping .shoping_div{ width:1200px; height:250px; float:left; position:relative;}
+.submit_orders .shoping .shoping_div img{width:200px; height:200px; float:left;}
+.submit_orders .shoping .shoping_div .shoping_div_a{ width:300px; height:250px; position:absolute; right:0; top:0;}
+.submit_orders .shoping h5{ width:300px; height:50px; float:left; margin:50px 0 0 50px; overflow:hidden; font-size: 20px;}
+.submit_orders .shoping h4{ position:absolute; right:400px; top:60px; font-size: 20px;}
+.submit_orders .shoping h3{ margin-left:60px;}
+.submit_orders .shoping b{ font-size:2.0em; color:#F00;}
+.submit_orders .shoping #btn1{ padding:5px 10px 5px 10px; font-size:1.0em; margin:50px 0 30px 50px;}
+.submit_orders .shoping #btn2{ padding:5px 10px 5px 10px; font-size:1.0em;}
+.submit_orders .shoping #txt1{ padding:5px; font-size:1.0em;}
+.submit_orders .shoping #txt2{ border:none; outline:medium; font-size:2.0em; color:#F00;}

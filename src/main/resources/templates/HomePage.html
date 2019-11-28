@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="application/x-www-form-urlencoded; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="HomePage.css" th:href="@{/css/HomePage.css}" />
+<script type="text/javascript" src="HomePage.js" th:src="@{/javaScript/HomePage.js}"></script>
+<script type="text/javascript" src="jquery-3.3.1.js" th:src="@{/javaScript/jquery-3.3.1.js}"></script>
+<script type="text/javascript" src="jquery.cookie.js" th:src="@{/javaScript/jquery.cookie.js}"></script>
+    <title>网上借阅系统</title>
+</head>
+
+<body>
+<div id="wrap_big">
+    <div  class="nav_top">
+        <a style="margin-left: 20px;" id="toplogin" class="lt" >登录</a>
+        <a id="top_registered" class="lt">注册</a>
+        <a class="rt aa"  target="_blank">我的看单</a>
+        <a class="rt ab" target="_blank">我的订单</a>
+    </div>
+<!--    隐形登录框-->
+	<div id="login">
+    	<input id="login_close" type="button" value="关闭"/>
+    	<div id="login_div1">
+    		<form id="login_form"  enctype="multipart/form-data" >
+        		<strong>账号：</strong><input id="login_txt1" type="text" size="20" name="username" /><br />
+            	<strong>密码：</strong><input id="login_txt2" type="password" size="20" name="password" /><br />
+                <strong>验证码：</strong><input id="vacode" size="3" >
+                <input id="checkcode" type="text" readonly="readonly" size="3" /><br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>记住密码：<input type="radio" id="chkSave" name="save" value="yes" checked="checked"></label>
+                <label>忘记密码：<input type="radio" name="save" value="no"></label>
+         		<input id="login_bnt" type="button" value="登录" />
+                <p class="msg"></p>
+       		 </form>
+        </div>
+    </div>
+	<!--	隐形注册框-->
+    <div id="reg_frame">
+    	<input id="reg_close" type="button" value="关闭"/>
+        <div id="reg_div1">
+      		<form id="reg_form"  enctype="multipart/form-data" >
+        		<strong>账号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><input id="reg_txt1" type="text" size="20" name="username" /><br />
+                <strong>昵称：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><input id="reg_txt2" type="text" size="20" name="nickname" /><br />
+            	<strong>密码：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><input id="reg_txt3a" type="password" size="20" name="pw1" /><br />
+                <strong>确认密码：</strong><input id="reg_txt3b" type="password" size="20" name="pw2" /><br />
+                <strong>注册角色：</strong><label>普通用户<input type="radio" name="userType"  value="general"   checked="checked"/></label>
+                						<label>图书馆<input type="radio" name="userType" value="lib" /></label>
+         		<input id="reg_bnt" type="button" size="30" value="立即注册" />
+                <p class="re_msg"></p>
+       		 </form>
+         </div>
+    </div>
+    <div class="search_div2"><!--搜索div-->
+            <div id="clock" class="date">  <!--数字时钟-->
+                <div class="year">
+                    <img class="num" src="0.png" th:src="@{/images/time/0.png}"  alt="0" />
+                    <img class="num" src="0.png" th:src="@{/images/time/0.png}"   alt="0" />
+                    <img class="num" src="0.png" th:src="@{/images/time/0.png}"  alt="0"  />
+                    <img class="num" src="0.png" th:src="@{/images/time/0.png}"   alt="0" />
+                    <img src="year.png"  th:src="@{/images/time/year.png}"  alt="year" />
+                    <img class="num" src="0.png"  th:src="@{/images/time/0.png}"   alt="0"  />
+                    <img class="num" src="0.png"  th:src="@{/images/time/0.png}"   alt="0" />
+                    <img src="month.png"   th:src="@{/images/time/month.png}"  alt="month"  />
+                    <img class="num" src="0.png"  th:src="@{/images/time/0.png}"  alt="0" />
+                    <img class="num" src="0.png"  th:src="@{/images/time/0.png}"  alt="0"  />
+                    <img src="seven.png"  th:src="@{/images/time/seven.png}"  alt="seven"  />
+                </div>
+                <div class="time">
+                    <img class="num" src="0.png"  th:src="@{/images/time/0.png}"  alt="0" />
+                    <img class="num" src="0.png"   th:src="@{/images/time/0.png}" alt="0"  />
+                    <img src="sign.png"  th:src="@{/images/time/sign.png}"  alt="sign"  />
+                    <img class="num" src="0.png"  th:src="@{/images/time/0.png}" alt="0" />
+                    <img class="num" src="0.png"   th:src="@{/images/time/0.png}" alt="0" />
+                    <img src="sign.png"   th:src="@{/images/time/sign.png}" alt="sign"   />
+                    <img class="num" src="0.png"   th:src="@{/images/time/0.png}"  alt="0"/>
+                    <img class="num" src="0.png"  th:src="@{/images/time/0.png}" alt="0" />
+                </div>
+            </div>
+        <p ></p>
+        <div class="ss">
+            <form id="form2"  th:action="@{/search}" method="get" enctype="multipart/form-data">
+           	 	<input id="ss_txt" placeholder="请输入 书名/作者/类别/图书馆名" type="text" size="30"  name="stm"/>
+           	 	<input id="ss_bnt" type="submit" value="搜索"  />
+                <span></span>
+            </form>
+
+        </div>
+    </div><!--div2结束-->
+    
+    <div class="content_div3"> 
+    	<div  class="nav_leftmenu" ><!--/*.content_div3的左侧菜单*/-->
+    		<ul id="nav_leftul">
+            	<li>人文社科
+                	<div class="nav_leftmenu_div1">
+                    	<a>中国史</a><a>世界史</a><a>中国传统文化</a><a>世界文化</a>
+                        <a>古代哲学</a><a>伦理学</a><a>道教</a><a>佛教</a>
+                        <a>诸子百家</a><a>中国军事</a><a>世界军事</a><a>军事武器</a>
+                        <a>军事纪实</a> <a>中国共产党</a><a>资本主义</a>
+                        <a>法律法规</a><a>社会学</a><a>语言文字</a>
+                    </div>
+                </li>
+                <li>经济管理
+                	<div class="nav_leftmenu_div1">
+                    	<a>经济学理论</a><a>中国经济</a><a>国际经济</a><a>经济史</a><a>财政税收</a>
+                        <a>通货膨胀</a><a>财税外贸考试书籍</a><a>基金</a>
+                        <a>期货</a><a>外汇</a><a>彩票</a><a>保险</a><a>投资指南</a><a>通俗读物</a> 
+                    </div>
+                </li>
+                <li>科学技术
+                	<div class="nav_leftmenu_div1">
+                    	<a>基础物理学</a><a>宇宙知识</a><a>生物</a><a>百科知识</a><a>建筑学</a>
+                        <a>医学</a><a>预防医学</a><a>临床医学</a><a>妇产科</a>
+                        <a>计算机</a><a>网络</a><a>计算机硬件</a><a>计算机编程</a>
+                        <a>人工智能</a> <a>大数据</a><a>5G</a>
+                        <a>农业技术</a><a>林业</a><a>畜牧业</a>
+                        <a>工业机械</a><a>电子仪表</a><a>化学</a>
+                    </div>
+                </li>
+                <li>励志
+                	<div class="nav_leftmenu_div1">
+                    	<a>人生哲学</a><a>成功学</a><a>激励心灵</a><a>性格与智商</a><a>情商</a>
+                        <a>智谋与成功</a><a>人际关系</a><a>口才</a><a>演讲</a>
+                        <a>留学名言</a><a>格言励志</a><a>男性励志</a><a>女性励志</a>
+                        <a>励志故事</a><a>励志名人</a><a>励志经典</a>
+                    </div>
+                </li>
+                <li>童书
+                	<div class="nav_leftmenu_div1">
+                    	<a>中国儿童文学</a><a>外国儿童文学</a><a>绘本科普</a><a>百科婴儿</a>
+                        <a>幼儿启蒙</a><a>益智读物</a><a>玩具指南</a><a>漫画</a>
+                        <a>卡通少儿</a><a>儿童英语</a><a>进口儿童读物</a>
+                    </div>
+                </li>
+                <li>生活
+                	<div class="nav_leftmenu_div1">
+                    	<a>保健</a><a>运动指南</a><a>育儿</a><a>居家</a><a>美妆</a>
+                        <a>家庭教育</a><a>手工</a><a>美食指南</a><a>旅游指南</a>
+                        <a>两性健康</a><a>养生</a><a>风水</a><a>休闲</a>
+                        <a>恋爱</a><a>婚姻</a><a>药膳食疗</a>
+                    </div>
+                </li>
+                <li>青春文学
+                	<div class="nav_leftmenu_div1">
+                    	<a>偶像</a><a>爆笑</a><a>无厘头</a><a>玄幻</a><a>武侠</a>
+                        <a>言情</a><a>穿越</a><a>科幻文学</a><a>魔幻</a>
+                        <a>校园生活</a><a>爱情</a><a>叛逆</a><a>惊悚</a>
+                        <a>成长</a><a>悬疑</a><a>影视</a>
+                         <a>重生</a><a>写真</a><a>架空世界</a>
+                    </div>
+                </li>
+                <li>网络小说
+                	<div class="nav_leftmenu_div1">
+                   		<a>中国当代小说</a><a>近现代小说</a><a>古典小说</a><a>四大名著</a>
+                        <a>外国小说</a><a>科幻文学</a><a>魔幻</a>
+                    	<a>侦探小说</a><a>军事</a><a>都市</a><a>玄幻</a><a>武侠</a>
+                        <a>言情</a><a>穿越</a><a>科幻文学</a><a>魔幻</a>
+                        <a>校园生活</a><a>爱情</a><a>官场</a><a>惊悚</a>
+                        <a>乡土</a><a>世界名著</a><a>架空世界</a>
+                    </div>
+                </li>
+            
+            </ul>
+    	</div>
+        
+   		 <div id="cs_div" class="content_slide" ><!--幻灯片展示-->
+         	<div id="slide_prev"><img src="prev.jpg" th:src="@{/images/prev.jpg}" width="30"; height="100" /></div>
+            <div id="slide_next"><img src="next.jpg" th:src="@{/images/next.jpg}" width="30"; height="100"/></div>
+         	<ul id="slide_ul">
+            	<li th:each="b: ${book0}" >
+                    <a th:href="@{'/shop_trading/'+${b.id}}"><img  th:src="@{${b.image}}"/></a>
+                </li>
+            </ul>
+    	</div>
+        <div class="content_right">
+        	<h3 style="margin-bottom: 10px;">大家都在看</h3>
+            <p th:each="ab : ${bookPopular}">
+                <a th:text="${ab.title}" th:href="@{'/shop_trading/'+${ab.id}}" target="_blank"></a>
+            </p>
+        </div>
+	</div>
+    <div class="content_div4">
+    	<div class="content_div4_left">
+        	<p>人文社科</p>
+            <b><a th:href="@{/Categories/social}" target="_blank">更多</a></b>
+            <div class="content_re" >
+                <div class="product" th:each="b1 : ${book1}">
+                    <img th:src="@{${b1.image}}" />
+                    <a th:text="${b1.title}"  th:href="@{'/shop_trading/'+${b1.id}}" target="_blank"></a>
+                    <h3 th:text="'￥'+${b1.price}"></h3>
+                    <h4 th:text="'可借阅天数：'+${b1.max_day}"></h4>
+                    <p th:text="'借阅量:'+${b1.bw_amount}"></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="content_div4_left">
+        	<p>经济管理</p>
+           	<b><a th:href="@{/Categories/economic}" target="_blank">更多</a></b>
+            <div class="content_re">
+                <div class="product" th:each="b2 : ${book2}">
+                    <img th:src="${b2.image}" />
+                    <a th:text="${b2.title}" th:href="@{'/shop_trading/'+${b2.id}}" target="_blank"></a>
+                    <h3 th:text="'￥'+${b2.price}"></h3>
+                    <h4 th:text="'可借阅天数：'+${b2.max_day}"></h4>
+                    <p th:text="'借阅量：'+${b2.bw_amount}"></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="content_div4_left">
+        	<p>科学技术</p>
+            <b><a th:href="@{/Categories/science}" target="_blank">更多</a></b>
+            <div class="content_re">
+                <div class="product" th:each="b3 : ${book3}">
+                    <img th:src="${b3.image}" />
+                    <a th:text="${b3.title}" th:href="@{'/shop_trading/'+${b3.id}}" target="_blank"></a>
+                    <h3 th:text="'￥'+${b3.price}"></h3>
+                    <h4 th:text="'可借阅天数：'+${b3.max_day}"></h4>
+                    <p th:text="'借阅量：'+${b3.bw_amount}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="content_div4_left">
+        	<p>励志</p>
+            <b><a th:href="@{/Categories/inspirational}" target="_blank">更多</a></b>
+            <div class="content_re">
+                <div class="product" th:each="b4 : ${book4}">
+                    <img th:src="${b4.image}" />
+                    <a th:text="${b4.title}" th:href="@{'/shop_trading/'+${b4.id}}" target="_blank"></a>
+                    <h3 th:text="'￥'+${b4.price}"></h3>
+                    <h4 th:text="'可借阅天数：'+${b4.max_day}"></h4>
+                    <p th:text="'借阅量：'+${b4.bw_amount}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="content_div4_left">
+        	<p>童书</p>
+           <b><a th:href="@{/Categories/child}" target="_blank">更多</a></b>
+            <div class="content_re">
+                <div class="product" th:each="b5 : ${book5}">
+                    <img th:src="${b5.image}" />
+                    <a th:text="${b5.title}" th:href="@{'/shop_trading/'+${b5.id}}" target="_blank"></a>
+                    <h3 th:text="'￥'+${b5.price}"></h3>
+                    <h4 th:text="'可借阅天数：'+${b5.max_day}"></h4>
+                    <p th:text="'借阅量：'+${b5.bw_amount}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="content_div4_left">
+        	<p>生活</p>
+            <b><a th:href="@{/Categories/life}" target="_blank">更多</a></b>
+            <div class="content_re">
+                <div class="product" th:each="b6 : ${book6}">
+                    <img th:src="${b6.image}" />
+                    <a th:text="${b6.title}" th:href="@{'/shop_trading/'+${b6.id}}" target="_blank"></a>
+                    <h3 th:text="'￥'+${b6.price}"></h3>
+                    <h4 th:text="'可借阅天数：'+${b6.max_day}"></h4>
+                    <p th:text="'借阅量：'+${b6.bw_amount}"></p>
+                </div>
+
+            </div>
+        </div>
+        <div class="content_div4_left">
+        	<p>青春文学</p>
+           	<b><a th:href="@{/Categories/youth}" target="_blank">更多</a></b>
+            <div class="content_re">
+                <div class="product" th:each="b7 : ${book7}">
+                    <img th:src="${b7.image}" />
+                    <a th:text="${b7.title}" th:href="@{'/shop_trading/'+${b7.id}}" target="_blank"></a>
+                    <h3 th:text="'￥'+${b7.price}"></h3>
+                    <h4 th:text="'可借阅天数：'+${b7.max_day}"></h4>
+                    <p th:text="'借阅量：'+${b7.bw_amount}"></p>
+                </div>
+            </div>
+        </div>
+        <div class="content_div4_left">
+        	<p>网络小说</p>
+            <b><a th:href="@{/Categories/novel}" target="_blank">更多</a></b>
+            <div class="content_re">
+                <div class="product" th:each="b8 : ${book8}">
+                    <img th:src="${b8.image}" />
+                    <a th:text="${b8.title}" th:href="@{'/shop_trading/'+${b8.id}}" target="_blank"></a>
+                    <h3 th:text="'￥'+${b8.price}"></h3>
+                    <h4 th:text="'可借阅天数：'+${b8.max_day}"></h4>
+                    <p th:text="'借阅量：'+${b8.bw_amount}"></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="return_top">
+        <img style="height: 110px; width: 50px;" src="return_top.jpg" th:src="@{/images/return_top.jpg}" />			<!--返回顶部-->
+    </div>
+    <iframe src="foot.html" th:replace="foot::html"  scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</div>
+</body>
+</html>

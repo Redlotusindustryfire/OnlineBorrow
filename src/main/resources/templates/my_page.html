@@ -1,0 +1,77 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/my_page.css" th:href="@{/css/my_page.css}" />
+<script type="text/javascript" src="javaScript/my_page.js" th:src="@{/javaScript/my_page.js}"></script>
+    <script type="text/javascript" src="javaScript/jquery-3.3.1.js" th:src="@{/javaScript/jquery-3.3.1.js}"></script>
+<title>我的主页</title>
+</head>
+
+<body>
+<div id="wrap_big">
+
+    <div id="div1">
+    	<p>我的主页</p>
+    </div>
+    
+    <div id="div2">
+    	<ul>
+          <li class="li1">我的借阅
+         	 <div class="div1">
+                 <ul>
+                     <li><a th:href="@{/my_finished}">未归还书单</a> </li>
+                     <li><a th:href="@{/history}">历史书单</a> </li>
+                 </ul>
+           	</div>
+   		 </li>
+          <li class="li1"><a href="my_cart.html">我的看单</a>
+          	<div class="div1">
+          	
+           	</div>
+          </li>
+          <li class="li1">个人资料
+          		<div class="div1">
+                	<ul>
+                      <li><a href="/address_list.html">配送地址</a> </li>
+                        <li><a href="/personal_inform.html">昵称修改</a> </li>
+          			</ul>
+                </div>
+          </li>
+          <li class="li1">安全设置
+          		<div class="div1">
+                	<ul>
+                      <li><a href="/password_change.html">修改账号密码</a></li>
+          			</ul>
+                </div>
+          </li>
+    	</ul>
+    </div>
+    
+    <div class="delivery">
+        <h3>正在派送</h3>
+        <div class="delivery_top">
+            <p>图书名称</p>
+            <p>订阅数量</p>
+            <p>下单时间</p>
+            <p>功能</p>
+        </div>
+        <div class="delivery_lt">
+            <div class="delivery_lt_div" th:each="book : ${books} ">
+                <img th:src="@{${book.image}}" />
+                <h4><a th:text="${book.title}" th:href="@{'/shop_trading/'+${book.id}}" target="_blank"></a></h4>
+            </div>
+        </div>
+        <div class="delivery_rt">
+            <div class="delivery_rt_div" th:each="borrow : ${borrows}">
+                <h4 th:text="${borrow.quantity}"></h4>
+                <h4 th:text="${borrow.time}"></h4>
+                <input class="btn" type="button" value="取消订单"/>
+                <input class="btn1" type="button" value="确认送达" />
+            </div>
+        </div>
+
+    </div>
+</div>    
+</body>
+</html>

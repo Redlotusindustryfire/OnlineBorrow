@@ -1,0 +1,109 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/library.css" th:href="@{/css/library.css}" />
+<script type="text/javascript" src="javaScript/library.js" th:src="@{/javaScript/library.js}"></script>
+    <script type="text/javascript" src="javaScript/jquery-3.3.1.js" th:src="@{/javaScript/jquery-3.3.1.js}"></script>
+<title>图书馆</title>
+</head>
+
+<body>
+<div class="big_div">
+    <div class="meseage" th:unless="${#lists.isEmpty(lib_delivery)}">
+        <p style="width: 250px;">图书馆名称：<span th:text="${lib_delivery.name}"></span></p>
+        <p style="width: 580px;">图书馆地址：<span th:text="${lib_delivery.address}"></span></p>
+        <p style="width: 300px;">联系方式：<span th:text="${lib_delivery.phone}"></span></p>
+    </div>
+	<div class="sereach">
+        <p style="margin: 40px 0 0 50px;" th:if="${total!=0}">总借阅量：
+            <span style="color: #CC0000; font-size: 22px;" th:text="${total}">
+            </span>
+        </p>
+    </div>
+	
+    <div class="content">
+    	<div class="nav_top">
+            <ul>
+              <li class="li1">图书管理
+                 <div class="div1">
+                	<ul>
+                        <li><a th:href="@{/book_list}">管理书单</a> </li>
+                        <li><a th:href="@{/new_bklist}"> 新建图书</a></li>
+                    </ul>
+                </div>
+             </li>
+              <li class="li1">借出书单
+                <div class="div1">
+                	<ul>
+                          <li><a th:href="@{/lib_finished}">交易中订单</a></li>
+                          <li><a th:href="@{/ReturnApplication}">归还申请详情</a></li>
+                            <li><a th:href="@{/lib_history}">历史订单</a></li>
+                    </ul>
+                </div>
+              </li>
+              <li class="li1"><a href="/lib_information.html"> 修改信息</a>
+                    <div class="div1">
+                        
+                    </div>
+              </li>
+              <li class="li1">安全设置
+                    <div class="div1">
+                        <ul>
+                          <li><a href="/password_change.html">修改账号密码</a></li>
+                        </ul>
+                    </div>
+              </li>
+            </ul>
+        </div>
+        
+        <div class="content_md">
+    		<p>即刻配送订单</p>
+   		</div>
+        <div class="shop_cart">
+            <div id="nav_top">
+                <p style="margin-left: 120px;">书名</p>
+                <p>图书ISBN</p>
+                <p>已收付</p>
+                <p>借阅数量/本</p>
+                <p>下单时间</p>
+                <p>收货人</p>
+                <p>配送地址</p>
+                <p>手机/电话</p>
+                <p>功能</p>
+            </div>
+            <div id="record_lt">
+                <div class="record_lt_div" th:each="book : ${books}">
+                    <img th:src="@{${book.image}}" />
+                    <p><a th:text="${book.title}"></a></p>
+                    <p th:text="${book.numbering}"></p>
+                </div>
+            </div>
+
+            <div id="record_md">
+                <div class="record_md_div" th:each="totalPrice : ${totalPrices}">
+                    <p th:text="${totalPrice}"></p>
+                </div>
+            </div>
+
+            <div id="record_rt">
+                <div class="record_rt_div"  th:each="borrow2 : ${borrows2}">
+                    <p th:text="${borrow2.quantity}"></p>
+                    <p th:text="${borrow2.time}"></p>
+                </div>
+            </div>
+            <div id="record_last">
+                <div class="record_last_div" th:each="delivery : ${deliveries}">
+                    <p th:text="${delivery.name}"></p>
+                    <p th:text="${delivery.address}"></p>
+                    <p th:text="${delivery.phone}"></p>
+                    <p style="margin-left: 30px;"><input class="btn" type="button"  value="配送成功"/></p>
+                </div>
+            </div>
+
+        </div>
+    </div>	<!--content结束-->
+    <iframe src="foot.html" th:replace="foot::html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</div>
+</body>
+</html>

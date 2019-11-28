@@ -1,0 +1,54 @@
+<!DOCTYPE html >
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="css/my_finished.css" th:href="@{/css/my_finished.css}" />
+<script type="text/javascript" src="javaScript/my_finished.js" th:src="@{/javaScript/my_finished.js}"></script>
+    <script type="text/javascript" src="javaScript/jquery-3.3.1.js" th:src="@{/javaScript/jquery-3.3.1.js}"></script>
+<title>未归还书单</title>
+</head>
+
+<body>
+ <div id="wrap_big">
+ 	<div class="div1">
+    	<p>未归还书单</p>
+    </div>
+    <div class="shop_cart">
+        <div id="nav_top">
+            <p style="margin-left: 120px;">书名</p>
+            <p>借阅单价/RMB</p>
+            <p>总支付</p>
+            <p>借阅数量/本</p>
+            <p>下单时间</p>
+            <p>剩余借阅天数</p>
+            <p style="margin-left:15px">功能</p>
+        </div>
+        <div id="record_lt">
+            <div class="record_lt_div" th:each="book : ${books}">
+                <img th:src="@{${book.image}}" />
+                <p><a th:text="${book.title}" th:href="@{'/shop_trading/'+${book.id}}" target="_blank"></a></p>
+                <p th:text="${book.price}"></p>
+            </div>
+        </div>
+
+        <div id="record_md">
+            <div class="record_md_div" th:each="totalPrice : ${totalPrices}">
+                <p th:text="${totalPrice}"></p>
+            </div>
+        </div>
+
+        <div id="record_rt">
+            <div class="record_rt_div"  th:each="borrow2 : ${borrows2}">
+                <p th:text="${borrow2.quantity}"></p>
+                <p th:text="${borrow2.time}"></p>
+                <p th:text="${borrow2.lastTime}"></p>
+                <p><input class="btn" type="button" value="归还图书"/></p>
+            </div>
+        </div>
+
+    </div>
+    <iframe src="foot.html" th:replace="foot::html" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+ </div>
+
+</body>
+</html>

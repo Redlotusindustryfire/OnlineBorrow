@@ -1,0 +1,29 @@
+@charset "utf-8";
+*{ margin:0; padding:0;}
+div{ border:1px solid #333;  }
+.wrap_big{width:1200px; height:auto;margin:auto;margin-top:5px; position:relative; border:none;}
+iframe{ width:1200px; height:200px; border:none;}
+
+.div1{ height:100px ;width:1198px; float:left; background-color:#FCF;}
+.div1 .ss{ width:auto; height:auto; position:absolute; left:800px; top:30px; border:none; }
+ #txt1{ padding:10px; }
+ #bnt1{ padding:10px;}
+ 
+ .book_inform{ width:100%; height:auto; background-color:#FFC;}
+.book_inform a{display: inline-block; font-size:14px;padding: 10px;}
+.book_inform a:hover{text-decoration: underline; color: #FF0000; cursor:pointer;}
+table { width:100%; margin: 10px auto 0; border-collapse: collapse; font-size: 12px; background: #fff; }
+th , td {width:100px;  border: 1px solid #eee;  text-align:center;}
+th { height:50px; padding: 10px 0; font-size: 16px; color: #006699; background: #f6f6f6; text-decoration:none; }
+td { padding: 5px;height:100px;}
+img { width:100px; height:100px;float:left; }
+span { color: #FF9900; font-weight: bold; font-size: 16px; font-family: arial; }
+
+.select1{padding:5px; font-size:16px;}
+.txt1{  padding:5px; font-size:16px; background-color:inherit;}
+.change,.delete{ font-size:14px; margin:5px; padding:5px;}
+.top_div{ width:1198px; height:60px; float:left; background-color:#CCC; position:relative;}
+.top_div a { padding:5px; font-size:24px; text-decoration:none; color:#000; position:absolute; right:20px; top:10px; }
+.top_div p{ font-size:24px; margin-top:25px;}
+
+
